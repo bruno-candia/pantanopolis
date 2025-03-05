@@ -3,9 +3,10 @@ import * as THREE from 'three';
 import { OrbitControls } from '@react-three/drei';
 import { Tower } from '../../components/atomic/Tower';
 
+
 export const Experience: React.FC = () => {
   const groupRef = useRef<THREE.Group>(null);
-  
+
   return (
     <>
       <OrbitControls 
@@ -29,7 +30,7 @@ export const Experience: React.FC = () => {
       />
 
       <group ref={groupRef}>
-        <Tower />
+        <Tower position={[0, 0, 0]} />
       </group> 
     </>
   );

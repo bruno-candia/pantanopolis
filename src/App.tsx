@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Suspense, useEffect, useState } from "react";
-import { LoadingGame } from "./components/molecule/LoadingGame";
+import { InitialScreen } from "./components/organism/InitialScreen";
 import { Experience } from "./pages/Experience";
 
 const audio = new Audio("./audio/Song Of Unity.mp3");
@@ -35,7 +35,7 @@ export function App() {
           />
         </EffectComposer>
       </Canvas>
-      <LoadingGame started={start} onStarted={() => setStart(true)} />
+      <InitialScreen started={start} onStarted={() => setStart(true)} />
     </>
   );
 }

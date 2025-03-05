@@ -1,4 +1,3 @@
-// File: src/components/blocks/GameBlock.tsx
 import React from "react";
 
 export interface GameBlockProps extends React.ComponentProps<"group"> {
