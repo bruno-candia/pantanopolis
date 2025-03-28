@@ -51,20 +51,15 @@ export function Overlay() {
     shown && (
       <div className="overlay">
         <Logo />
-        <div className="overlay__menu">
+        <div className="overlay-content">
         {!hasLoaded ? (
           <ProgressBar active={active} progress={progress} />
         ) : (
-          <>
-            <GameMenu
-              onStartGame={handleStartGame}
-              onMusic={handleMusic}
-              musicEnabled={musicEnabled}
-            />
-            {/* <div className="game-author-info">
-                <Author />  
-              </div>*/}
-          </>
+          <GameMenu
+          onStartGame={handleStartGame}
+          onMusic={handleMusic}
+          musicEnabled={musicEnabled}
+        />
         )}
       </div>
       </div>

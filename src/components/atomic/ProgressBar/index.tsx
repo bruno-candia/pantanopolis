@@ -1,5 +1,5 @@
+import { useRef, useCallback, useEffect } from "react";
 import "./styles.css";
-import * as React from 'react';
 
 const defaultDataInterpolation = (p: number) => `Loading: ${p.toFixed(0)}%`;
 
@@ -14,11 +14,11 @@ export function ProgressBar({
   progress, 
   dataInterpolation = defaultDataInterpolation 
 }: ProgressBarProps) {
-  const progressRef = React.useRef(0);
-  const rafRef = React.useRef(0);
-  const progressSpanRef = React.useRef<HTMLSpanElement>(null);
+  const progressRef = useRef(0);
+  const rafRef = useRef(0);
+  const progressSpanRef = useRef<HTMLSpanElement>(null);
 
-  const updateProgress = React.useCallback(() => {
+  const updateProgress = useCallback(() => {
     if (!progressSpanRef.current) return;
     progressRef.current += (progress - progressRef.current) / 2;
     if (progressRef.current > 0.95 * progress || progress === 100) progressRef.current = progress;
@@ -26,7 +26,7 @@ export function ProgressBar({
     if (progressRef.current < progress) rafRef.current = requestAnimationFrame(updateProgress);
   }, [dataInterpolation, progress]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     updateProgress();
     return () => cancelAnimationFrame(rafRef.current);
   }, [updateProgress]);
