@@ -1,0 +1,17 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  justify-content: center;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    gap: 2rem;
+  }
+}

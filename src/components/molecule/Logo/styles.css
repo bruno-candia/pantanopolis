@@ -1,0 +1,46 @@
+.logo {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  min-height: 80px;
+  height: 17.5rem;
+  width: auto;
+}
+
+.left-title,
+.right-title {
+  margin: 0;
+  color: white;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  font-size: 4rem;
+}
+
+.left-title {
+  margin-right: -70px;
+}
+
+.right-title {
+  margin-left: -50px;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    min-height: 80px;
+    height: 15rem;
+    width: auto;
+  }
+  .left-title,
+  .right-title {
+    font-size: 2.5rem;
+  }
+
+  .left-title {
+    margin-right: -75px;
+  }
+  .right-title {
+    margin-left: -55px;
+  }
+}
