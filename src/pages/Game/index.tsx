@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { useRef } from 'react';
-import { Tower } from '../../atomic/Tower';
-import { $gameSetting } from '../../../store/GameSetting/GameSettingStore';
+import { Tower } from '../../components/atomic/Tower';
+import { $gameSetting } from '../../store/GameSetting/GameSettingStore';
 import { useUnit } from 'effector-react';
 
 export function Game()  {

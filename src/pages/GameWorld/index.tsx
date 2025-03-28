@@ -1,15 +1,15 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { MenuScreen } from "../MenuScreen";
-import { SuspenseSound } from "../../atomic/Sound";
+import { SuspenseSound } from "../../components/atomic/Sound";
 import { Preload } from "@react-three/drei";
 import { Game } from "../Game";
 import * as THREE from 'three';
 import { OrbitControls } from '@react-three/drei';
-
+import "./styles.css";
 export function GameWorld() {
   return (
-    <>
+    <div className="game-world">
       <Canvas shadows camera={{ position: [-10, 15, 10], fov: 35 }}>
         <Suspense fallback={null}>
           <OrbitControls
@@ -37,6 +37,6 @@ export function GameWorld() {
         </Suspense>
       </Canvas>
       <MenuScreen />
-    </>
+    </div>
   );
 }
