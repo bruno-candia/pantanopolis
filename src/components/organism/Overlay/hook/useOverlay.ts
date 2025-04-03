@@ -1,10 +1,10 @@
-import { useProgress } from "@react-three/drei";
-import { useUnit } from "effector-react";
-import { useState, useEffect } from "react";
-import { setGameStart } from "../../../../store/GameSetting/GameSettingEvent";
+import { useProgress } from '@react-three/drei';
+import { useUnit } from 'effector-react';
+import { useEffect, useState } from 'react';
+import { setGameStart } from '../../../../store/GameSetting/GameSettingEvent';
 
-import { setMusicEnabled } from "../../../../store/GameSetting/GameSettingEvent";
-import { $gameSetting } from "../../../../store/GameSetting/GameSettingStore";
+import { setMusicEnabled } from '../../../../store/GameSetting/GameSettingEvent';
+import { $gameSetting } from '../../../../store/GameSetting/GameSettingStore';
 
 interface UseOverlayReturn {
   shown: boolean;

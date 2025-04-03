@@ -25,7 +25,7 @@
   box-sizing: border-box;
 
   color: #f0f0f0;
-  font-family: "Times New Roman", serif;
+  font-family: 'Times New Roman', serif;
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
@@ -42,7 +42,8 @@
 
 .gem-blue {
   background-color: #0c2c52;
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(120, 180, 255, 0.25) 0%,
       rgba(120, 180, 255, 0) 60%
@@ -60,14 +61,17 @@
       #0a2444 100%
     );
 
-  box-shadow: inset 0 0 15px rgba(0, 30, 60, 0.8),
+  box-shadow:
+    inset 0 0 15px rgba(0, 30, 60, 0.8),
     inset 0 1px 1px rgba(120, 180, 255, 0.4),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.5);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .gem-red {
   background-color: #6e0e1a;
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(255, 160, 160, 0.25) 0%,
       rgba(255, 160, 160, 0) 60%
@@ -85,14 +89,17 @@
       #5e0b16 100%
     );
 
-  box-shadow: inset 0 0 15px rgba(60, 0, 10, 0.8),
+  box-shadow:
+    inset 0 0 15px rgba(60, 0, 10, 0.8),
     inset 0 1px 1px rgba(255, 150, 150, 0.4),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.5);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .gem-green {
   background-color: #0a4c2a;
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(150, 255, 180, 0.25) 0%,
       rgba(150, 255, 180, 0) 60%
@@ -110,14 +117,17 @@
       #084020 100%
     );
 
-  box-shadow: inset 0 0 15px rgba(0, 50, 20, 0.8),
+  box-shadow:
+    inset 0 0 15px rgba(0, 50, 20, 0.8),
     inset 0 1px 1px rgba(150, 255, 180, 0.4),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.5);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .gem-beige {
   background-color: #96752e;
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(255, 235, 180, 0.25) 0%,
       rgba(255, 235, 180, 0) 60%
@@ -135,13 +145,16 @@
       #866828 100%
     );
 
-  box-shadow: inset 0 0 15px rgba(60, 45, 0, 0.8),
+  box-shadow:
+    inset 0 0 15px rgba(60, 45, 0, 0.8),
     inset 0 1px 1px rgba(255, 230, 180, 0.4),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.5);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .medieval-button:hover .gem-blue {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(120, 180, 255, 0.35) 0%,
       rgba(120, 180, 255, 0) 60%
@@ -158,13 +171,16 @@
       #0c2c52 80%,
       #0f2d50 100%
     );
-  box-shadow: inset 0 0 20px rgba(0, 40, 80, 0.8),
+  box-shadow:
+    inset 0 0 20px rgba(0, 40, 80, 0.8),
     inset 0 1px 2px rgba(150, 200, 255, 0.5),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .medieval-button:hover .gem-red {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(255, 160, 160, 0.35) 0%,
       rgba(255, 160, 160, 0) 60%
@@ -181,13 +197,16 @@
       #6e0e1a 80%,
       #7a101d 100%
     );
-  box-shadow: inset 0 0 20px rgba(80, 0, 10, 0.8),
+  box-shadow:
+    inset 0 0 20px rgba(80, 0, 10, 0.8),
     inset 0 1px 2px rgba(255, 170, 170, 0.5),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .medieval-button:hover .gem-green {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(150, 255, 180, 0.35) 0%,
       rgba(150, 255, 180, 0) 60%
@@ -204,13 +223,16 @@
       #0a4c2a 80%,
       #0c5730 100%
     );
-  box-shadow: inset 0 0 20px rgba(0, 60, 30, 0.8),
+  box-shadow:
+    inset 0 0 20px rgba(0, 60, 30, 0.8),
     inset 0 1px 2px rgba(170, 255, 190, 0.5),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .medieval-button:hover .gem-beige {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(255, 235, 180, 0.35) 0%,
       rgba(255, 235, 180, 0) 60%
@@ -227,13 +249,16 @@
       #96752e 80%,
       #a27f32 100%
     );
-  box-shadow: inset 0 0 20px rgba(70, 55, 0, 0.8),
+  box-shadow:
+    inset 0 0 20px rgba(70, 55, 0, 0.8),
     inset 0 1px 2px rgba(255, 240, 190, 0.5),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .medieval-button:active .gem-blue {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(80, 140, 220, 0.2) 0%,
       rgba(80, 140, 220, 0) 60%
@@ -250,14 +275,17 @@
       #05152a 80%,
       #071a30 100%
     );
-  box-shadow: inset 0 0 10px rgba(0, 20, 40, 0.9),
+  box-shadow:
+    inset 0 0 10px rgba(0, 20, 40, 0.9),
     inset 0 1px 1px rgba(100, 150, 200, 0.3),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(0, 0, 0, 0.3);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.7),
+    0 1px 1px rgba(0, 0, 0, 0.3);
   transform: translateY(1px);
 }
 
 .medieval-button:active .gem-red {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(220, 80, 80, 0.2) 0%,
       rgba(220, 80, 80, 0) 60%
@@ -274,14 +302,17 @@
       #2e050a 80%,
       #3a060e 100%
     );
-  box-shadow: inset 0 0 10px rgba(40, 0, 10, 0.9),
+  box-shadow:
+    inset 0 0 10px rgba(40, 0, 10, 0.9),
     inset 0 1px 1px rgba(200, 100, 100, 0.3),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(0, 0, 0, 0.3);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.7),
+    0 1px 1px rgba(0, 0, 0, 0.3);
   transform: translateY(1px);
 }
 
 .medieval-button:active .gem-green {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(80, 200, 120, 0.2) 0%,
       rgba(80, 200, 120, 0) 60%
@@ -298,14 +329,17 @@
       #031c0c 80%,
       #042410 100%
     );
-  box-shadow: inset 0 0 10px rgba(0, 30, 15, 0.9),
+  box-shadow:
+    inset 0 0 10px rgba(0, 30, 15, 0.9),
     inset 0 1px 1px rgba(100, 200, 120, 0.3),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(0, 0, 0, 0.3);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.7),
+    0 1px 1px rgba(0, 0, 0, 0.3);
   transform: translateY(1px);
 }
 
 .medieval-button:active .gem-beige {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse at top center,
       rgba(220, 200, 150, 0.2) 0%,
       rgba(220, 200, 150, 0) 60%
@@ -322,8 +356,10 @@
       #503c14 80%,
       #5a4318 100%
     );
-  box-shadow: inset 0 0 10px rgba(40, 30, 0, 0.9),
+  box-shadow:
+    inset 0 0 10px rgba(40, 30, 0, 0.9),
     inset 0 1px 1px rgba(200, 180, 120, 0.3),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(0, 0, 0, 0.3);
+    inset 0 -1px 1px rgba(0, 0, 0, 0.7),
+    0 1px 1px rgba(0, 0, 0, 0.3);
   transform: translateY(1px);
 }

@@ -1,5 +1,6 @@
-import castle from "../../../assets/castle.png";
-import "./styles.css";
+import castle from '../../../assets/castle.png';
+import './styles.css';
+
 export function Logo() {
   return (
     <div className="logo">

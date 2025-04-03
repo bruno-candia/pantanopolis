@@ -1,16 +1,19 @@
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { MenuScreen } from "../MenuScreen";
-import { SuspenseSound } from "../../components/atomic/Sound";
-import { Preload } from "@react-three/drei";
-import { Game } from "../Game";
+import { OrbitControls, Preload } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { Suspense } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from '@react-three/drei';
-import "./styles.css";
+import { SuspenseSound } from '../../components/atomic/Sound';
+import { Game } from '../Game';
+import { MenuScreen } from '../MenuScreen';
+import './styles.css';
+
 export function GameWorld() {
   return (
     <div className="game-world">
-      <Canvas shadows camera={{ position: [-10, 15, 10], fov: 35 }}>
+      <Canvas
+        shadows={{ type: THREE.PCFSoftShadowMap }}
+        camera={{ position: [-10, 15, 10], fov: 35 }}
+      >
         <Suspense fallback={null}>
           <OrbitControls
             minPolarAngle={THREE.MathUtils.degToRad(20)}
@@ -20,16 +23,20 @@ export function GameWorld() {
             target={[0, 0, 0]}
             enabled={true}
           />
-          <ambientLight intensity={1} />
+          <ambientLight intensity={0.5} />
           <directionalLight
-            position={[9, 5, 5]}
-            intensity={2}
+            position={[5, 8, 5]}
+            intensity={1.5}
             castShadow
-            color={"#ffffff"}
+            color={'#ffffff'}
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
             shadow-camera-near={0.5}
             shadow-camera-far={50}
+            shadow-camera-left={-10}
+            shadow-camera-right={10}
+            shadow-camera-top={10}
+            shadow-camera-bottom={-10}
           />
           <Game />
           <SuspenseSound />

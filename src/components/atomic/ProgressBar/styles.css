@@ -21,7 +21,8 @@
   border-radius: 5px;
   border: 3px solid;
   border-image: linear-gradient(to bottom, #e8e8e8, #7a7a7a, #303030) 1;
-  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5),
+  box-shadow:
+    0 0 5px 0px rgba(0, 0, 0, 0.5),
     inset 0 0 3px 1px rgba(255, 255, 255, 0.5);
   background: linear-gradient(to bottom, #555555, #252525);
   position: relative;
@@ -44,14 +45,15 @@
   /* Gem shine effect */
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.7),
+  box-shadow:
+    0 0 10px 2px rgba(255, 215, 0, 0.7),
     inset 0 0 15px rgba(255, 255, 255, 0.4);
 
   transition: transform 200ms;
 }
 
 .loadingScreen-bar::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -100%;
@@ -67,7 +69,7 @@
 }
 
 .loadingScreen-bar::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -86,9 +88,23 @@
   font-variant-numeric: tabular-nums;
   color: #f0f0f0;
   font-size: 2em;
-  font-family: "Commando", mono, monospace, -apple-system, BlinkMacSystemFont,
-    "Inter", "Segoe UI", "Helvetica Neue", Helvetica, Arial, Roboto, Ubuntu,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family:
+    'Commando',
+    mono,
+    monospace,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Inter',
+    'Segoe UI',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    Roboto,
+    Ubuntu,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
   white-space: nowrap;
   text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
 }

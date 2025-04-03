@@ -1,5 +1,5 @@
-import { createRef, RefObject } from "react";
-import * as THREE from "three";
+import { RefObject, createRef } from 'react';
+import * as THREE from 'three';
 
 interface GameSettingState {
   gameStarted: boolean;
@@ -10,13 +10,13 @@ interface GameSettingState {
   camera: RefObject<THREE.Object3D | null>;
 }
 
-const GameSettingState: GameSettingState = {  
+const GameSettingState: GameSettingState = {
   gameStarted: false,
   gameOver: false,
   level: 0,
   gold: 0,
   musicEnabled: false,
   camera: createRef<THREE.Object3D>(),
-}
+};
 
 export default GameSettingState;

@@ -1,5 +1,5 @@
-import { useRef, useCallback, useEffect } from "react";
-import "./styles.css";
+import { useCallback, useEffect, useRef } from 'react';
+import './styles.css';
 
 const defaultDataInterpolation = (p: number) => `Loading: ${p.toFixed(0)}%`;
 
@@ -9,10 +9,10 @@ interface ProgressBarProps {
   dataInterpolation?: (progress: number) => string;
 }
 
-export function ProgressBar({ 
-  active, 
-  progress, 
-  dataInterpolation = defaultDataInterpolation 
+export function ProgressBar({
+  active,
+  progress,
+  dataInterpolation = defaultDataInterpolation,
 }: ProgressBarProps) {
   const progressRef = useRef(0);
   const rafRef = useRef(0);
@@ -21,9 +21,11 @@ export function ProgressBar({
   const updateProgress = useCallback(() => {
     if (!progressSpanRef.current) return;
     progressRef.current += (progress - progressRef.current) / 2;
-    if (progressRef.current > 0.95 * progress || progress === 100) progressRef.current = progress;
+    if (progressRef.current > 0.95 * progress || progress === 100)
+      progressRef.current = progress;
     progressSpanRef.current.innerText = dataInterpolation(progressRef.current);
-    if (progressRef.current < progress) rafRef.current = requestAnimationFrame(updateProgress);
+    if (progressRef.current < progress)
+      rafRef.current = requestAnimationFrame(updateProgress);
   }, [dataInterpolation, progress]);
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export function ProgressBar({
   return (
     <div className={`loadingScreen__progress ${active ? 'active' : ''}`}>
       <div className="loadingScreen__inner">
-        <div 
+        <div
           className="loadingScreen-bar"
           style={{ transform: `scaleX(${progress / 100})` }}
         ></div>

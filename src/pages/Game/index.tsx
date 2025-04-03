@@ -1,10 +1,10 @@
-import * as THREE from 'three';
-import { useRef } from 'react';
-import { Tower } from '../../components/atomic/Tower';
-import { $gameSetting } from '../../store/GameSetting/GameSettingStore';
 import { useUnit } from 'effector-react';
+import { useRef } from 'react';
+import * as THREE from 'three';
+import { Map } from '../../components/organism/Map';
+import { $gameSetting } from '../../store/GameSetting/GameSettingStore';
 
-export function Game()  {
+export function Game() {
   const groupRef = useRef<THREE.Group>(null);
   const { gameStarted } = useUnit($gameSetting);
 
@@ -12,9 +12,9 @@ export function Game()  {
     <>
       {gameStarted && (
         <group ref={groupRef}>
-          <Tower/>
-        </group> 
+          <Map />
+        </group>
       )}
     </>
   );
-};
+}

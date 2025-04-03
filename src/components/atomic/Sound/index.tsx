@@ -1,23 +1,23 @@
-import { useRef, useEffect, useState, Suspense } from 'react'
-import { useLoader } from '@react-three/fiber'
-import * as THREE from 'three'
+import { useLoader } from '@react-three/fiber';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
 
-import { useUnit } from 'effector-react'
-import { $gameSetting } from '../../../store/GameSetting/GameSettingStore'
+import { useUnit } from 'effector-react';
+import { $gameSetting } from '../../../store/GameSetting/GameSettingStore';
 
-import speedUp from '../../../assets/audio/Song Of Unity.mp3'
+import speedUp from '../../../assets/audio/Song Of Unity.mp3';
 
 function Sound() {
-  const { camera, musicEnabled } = useUnit($gameSetting)
-  
-  const soundOrigin = useRef<THREE.Group>(null)
-  const [listener] = useState(() => new THREE.AudioListener())
-  const [audioObj] = useState(() => new THREE.Audio(listener))
-  const sound = useRef(audioObj)
-  
-  const speedUpSound = useLoader(THREE.AudioLoader, speedUp)
-  const [audioInitialized, setAudioInitialized] = useState(false)
-  const [bufferLoaded, setBufferLoaded] = useState(false)
+  const { camera, musicEnabled } = useUnit($gameSetting);
+
+  const soundOrigin = useRef<THREE.Group>(null);
+  const [listener] = useState(() => new THREE.AudioListener());
+  const [audioObj] = useState(() => new THREE.Audio(listener));
+  const sound = useRef(audioObj);
+
+  const speedUpSound = useLoader(THREE.AudioLoader, speedUp);
+  const [audioInitialized, setAudioInitialized] = useState(false);
+  const [bufferLoaded, setBufferLoaded] = useState(false);
 
   // Inicializa o contexto de áudio após interação do usuário
   useEffect(() => {
@@ -29,7 +29,7 @@ function Sound() {
           document.removeEventListener('click', resumeAudioContext);
         });
       };
-      
+
       document.addEventListener('click', resumeAudioContext);
       return () => {
         document.removeEventListener('click', resumeAudioContext);
@@ -38,8 +38,7 @@ function Sound() {
       setAudioInitialized(true);
     }
   }, [listener, audioInitialized]);
-  
-  // Carrega o buffer de áudio apenas uma vez
+
   useEffect(() => {
     if (audioInitialized && !bufferLoaded && sound.current) {
       sound.current.setBuffer(speedUpSound);
@@ -49,10 +48,9 @@ function Sound() {
     }
   }, [speedUpSound, audioInitialized, bufferLoaded]);
 
-  // Controla reprodução/pausa quando musicEnabled muda
   useEffect(() => {
     const currentSound = sound.current;
-    
+
     if (currentSound && bufferLoaded) {
       if (musicEnabled) {
         currentSound.setVolume(0.5);
@@ -71,7 +69,7 @@ function Sound() {
     if (camera.current) {
       const currentCamera = camera.current;
       currentCamera.add(listener);
-      
+
       return () => {
         currentCamera.remove(listener);
       };

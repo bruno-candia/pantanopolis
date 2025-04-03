@@ -1,8 +1,8 @@
-import { ProgressBar } from "../../atomic/ProgressBar";
-import { GameMenu } from "../../molecule/GameMenu";
-import { Logo } from "../../molecule/Logo";
-import "./styles.css";
-import { useOverlay } from "./hook/useOverlay";
+import { ProgressBar } from '../../atomic/ProgressBar';
+import { GameMenu } from '../../molecule/GameMenu';
+import { Logo } from '../../molecule/Logo';
+import { useOverlay } from './hook/useOverlay';
+import './styles.css';
 
 export function Overlay() {
   const {

@@ -6,5 +6,5 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // Permite acesso externo
     port: 5173, // Define a porta padrão
-  }
+  },
 });
