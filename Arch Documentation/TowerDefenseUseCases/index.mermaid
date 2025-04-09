@@ -1,0 +1,57 @@
+flowchart LR
+    subgraph "Tower Defense Game"
+        UC1["Start New Game"]
+        UC2["Select Difficulty"]
+        UC3["Place Tower"]
+        UC4["Upgrade Tower"]
+        UC5["Sell Tower"]
+        UC6["Trigger Wave"]
+        UC7["Manage Resources"]
+        UC8["Explore Map (Fog of War)"]
+        UC9["View Game Statistics"]
+        UC10["Save Game"]
+        UC11["Load Game"]
+        UC12["View Leaderboard"]
+        UC13["Adjust Game Settings"]
+        UC14["Login/Authenticate"]
+        UC15["View Tutorial"]
+        UC16["Pause/Resume Game"]
+        UC17["Use Special Abilities"]
+
+
+    player --> UC1
+    player --> UC3
+    player --> UC4
+    player --> UC5
+    player --> UC6
+    player --> UC8
+    player --> UC9
+    player --> UC10
+    player --> UC11
+    player --> UC12
+    player --> UC13
+    player --> UC14
+    player --> UC15
+    player --> UC16
+    player --> UC17
+
+    UC1 --> UC2
+    UC3 --> UC7
+    UC4 --> UC7
+    UC5 --> UC7
+    UC6 --> UE1["Defeat Enemies"]
+    UC8 --> UT1["Discover New Tiles"]
+    UC8 --> US1["Unlock Strategic Options"]
+    UC9 --> UV1["View Tower Performance"]
+    UC9 --> UW1["View Enemy Statistics"]
+    UC17 --> UP1["Use Power-ups"]
+    UC17 --> UM1["Activate Map Effects"]
+   end
+    %% Notes for explanation
+    classDef actor fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef normal fill:#bbf,stroke:#333,stroke-width:1px;
+    classDef important fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5;
+
+    UC6 --> UENote["Note: Player controls when to start the next wave of enemies"]
+    UC7 --> URNote["Note: Resources obtained from defeating enemies and completing waves"]
+    UC8 --> UMapNote["Note: After winning a wave, player can reveal one more tile on the map"]

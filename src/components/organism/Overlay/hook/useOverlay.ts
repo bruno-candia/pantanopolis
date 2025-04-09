@@ -1,10 +1,11 @@
 import { useProgress } from '@react-three/drei';
 import { useUnit } from 'effector-react';
 import { useEffect, useState } from 'react';
-import { setGameStart } from '../../../../store/GameSetting/GameSettingEvent';
 
 import { setMusicEnabled } from '../../../../store/GameSetting/GameSettingEvent';
 import { $gameSetting } from '../../../../store/GameSetting/GameSettingStore';
+import { setGameStart } from '../../../../store/GameState/GameStateEvent';
+import { $gameState } from '../../../../store/GameState/GameStateStore';
 
 interface UseOverlayReturn {
   shown: boolean;
@@ -21,7 +22,8 @@ export function useOverlay(): UseOverlayReturn {
   const [shown, setShown] = useState(true);
   const [opaque, setOpaque] = useState(true);
   const [hasLoaded, setHasLoaded] = useState(false);
-  const { gameStarted, gameOver, musicEnabled } = useUnit($gameSetting);
+  const { gameStarted, gameOver } = useUnit($gameState);
+  const { musicEnabled } = useUnit($gameSetting);
   const { active, progress } = useProgress();
 
   useEffect(() => {

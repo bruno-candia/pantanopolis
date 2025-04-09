@@ -1,0 +1,96 @@
+graph TD
+    %% Main Application Structure
+    App[App Component] --> Frontend
+    App --> GameEngine
+    App --> BackendIntegration
+
+    %% Frontend Structure
+    Frontend[Frontend Layer] --> UI[UI Components]
+    Frontend --> Rendering[3D Rendering]
+    
+    %% UI Components using Atomic Design
+    UI --> Atomic[Atomic Components]
+    UI --> Molecule[Molecule Components]
+    UI --> Organism[Organism Components]
+    
+    %% Component Details
+    Atomic --> A_Buttons[Buttons]
+    Atomic --> A_Icons[Icons]
+    Atomic --> A_Typography[Typography]
+    
+    Molecule --> M_Cards[Cards]
+    Molecule --> M_Forms[Forms]
+    Molecule --> M_Menus[Menus]
+    
+    Organism --> O_Map[Map Component]
+    Organism --> O_GameControls[Game Controls]
+    Organism --> O_UI_Overlay[UI Overlay]
+    
+    %% 3D Rendering
+    Rendering --> ThreeJS[Three.js]
+    Rendering --> ReactThree[React Three Fiber]
+    Rendering --> Drei[React Three Drei]
+    Rendering --> PostProcessing[Post Processing Effects]
+    
+    %% Game Engine
+    GameEngine[Game Engine] --> TileGeneration[Tile Generation]
+    GameEngine --> MapGeneration[Map Generation]
+    GameEngine --> PathFinding[Path Finding]
+    GameEngine --> EnemyManagement[Enemy Management]
+    GameEngine --> TowerManagement[Tower Management]
+    GameEngine --> CastleManagement[Castle Management]
+    GameEngine --> WaveSystem[Wave System]
+    GameEngine --> FogOfWar[Fog of War]
+    
+    %% Physics Engine
+    GameEngine --> Physics[Physics Engine]
+    Physics --> Rapier[React Three Rapier]
+    Physics --> Collisions[Collision Detection]
+    Physics --> Interactions[Object Interactions]
+    
+    %% Game Flow & Systems
+    TileGeneration --> ProceduralGeneration[Procedural Generation]
+    MapGeneration --> TileGeneration
+    MapGeneration --> PathFinding
+    
+    EnemyManagement --> Spawning[Enemy Spawning]
+    EnemyManagement --> AI[Enemy AI]
+    EnemyManagement --> Movement[Enemy Movement]
+    
+    TowerManagement --> Placement[Tower Placement]
+    TowerManagement --> Targeting[Tower Targeting]
+    TowerManagement --> Upgrades[Tower Upgrades]
+    
+    WaveSystem --> Difficulty[Difficulty Scaling]
+    WaveSystem --> Rewards[Wave Rewards]
+    WaveSystem --> FogOfWar
+    
+    %% Backend Integration
+    BackendIntegration[Backend Integration] --> Authentication[User Authentication]
+    BackendIntegration --> SaveSystem[Game Save System]
+    BackendIntegration --> Leaderboards[Leaderboards]
+    
+    %% State Management with Effector
+    StateManagement[State Management] --> EffectorStore[Effector Store]
+    EffectorStore --> GameState[Game State]
+    EffectorStore --> UIState[UI State]
+    EffectorStore --> UserState[User State]
+    
+    App --> StateManagement
+    
+    %% Mobile Responsiveness
+    UI --> ResponsiveDesign[Responsive Design]
+    ResponsiveDesign --> MobileControls[Mobile Controls]
+    ResponsiveDesign --> DesktopControls[Desktop Controls]
+
+    %% Styling
+    UI --> Styling[Styling System]
+    
+    %% Data Flow and Event Handling
+    classDef core fill:#f9f,stroke:#333,stroke-width:2px
+    classDef implemented fill:#bfb,stroke:#333,stroke-width:1px
+    classDef planned fill:#bbf,stroke:#333,stroke-width:1px
+    
+    class App,GameEngine,Frontend core
+    class TileGeneration,O_Map implemented
+    class MapGeneration,PathFinding,EnemyManagement,TowerManagement,CastleManagement,WaveSystem,FogOfWar,Physics planned

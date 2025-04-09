@@ -19,7 +19,6 @@ function Sound() {
   const [audioInitialized, setAudioInitialized] = useState(false);
   const [bufferLoaded, setBufferLoaded] = useState(false);
 
-  // Inicializa o contexto de áudio após interação do usuário
   useEffect(() => {
     if (!audioInitialized && listener.context.state === 'suspended') {
       const resumeAudioContext = () => {

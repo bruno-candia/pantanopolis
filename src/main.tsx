@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
-import { GameWorld } from './pages/GameWorld';
+import { GameInitialization } from './initialization';
 import './styles/global.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <GameWorld />
+  <GameInitialization />
 );

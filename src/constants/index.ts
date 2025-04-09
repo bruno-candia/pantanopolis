@@ -39,6 +39,7 @@ export const COLORS = {
   UI_BG: '#1d1d1d',
   UI_BORDER: '#454545',
   UI_BORDER_HIGHLIGHT: '#aaaaaa',
+  BIG_TILE_BORDER: '#ffcc00',
 };
 
 export const TERRAIN = {
@@ -52,9 +53,9 @@ export const TERRAIN = {
 
 export const MAP = {
   SIZE: {
-    SMALL: 5,
+    EASY: 12,
     MEDIUM: 8,
-    LARGE: 12,
+    HARD: 50,
   },
 
   PORTAL_COUNT: {
@@ -68,7 +69,11 @@ export const MAP = {
     MOUNTAIN: 0.15,
   },
 
-  MIN_CASTLE_PORTAL_DISTANCE: 9,
+  MIN_CASTLE_PORTAL_DISTANCE: {
+    EASY: 15,
+    MEDIUM: 12,
+    HARD: 10,
+  },
 };
 
 export const DIRECTIONS = {

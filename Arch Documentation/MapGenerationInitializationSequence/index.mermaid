@@ -1,0 +1,49 @@
+sequenceDiagram
+  actor Player as Player
+  participant GameUI as Game UI
+  participant GameState as Game State (Effector)
+  participant MapGenerator as Map Generator
+  participant TileGenerator as Tile Generator
+  participant PathFinder as Path Finding
+  participant FogOfWar as Fog of War System
+  participant Renderer as 3D Renderer
+
+  Note over Player, Renderer: Map Generation & Initialization Sequence
+  Player ->> GameUI: Start New Game
+  GameUI ->> GameState: Initialize Game
+  GameState ->> MapGenerator: Generate New Map
+  MapGenerator ->> MapGenerator: Set Difficulty Parameters
+  MapGenerator ->> TileGenerator: Request Tile Generation
+  loop For Each Map Position
+    TileGenerator ->> TileGenerator: Generate Procedural Tile
+    TileGenerator -->> MapGenerator: Return Generated Tile
+  end
+  MapGenerator ->> PathFinder: Request Valid Path Creation
+  PathFinder ->> PathFinder: Calculate Optimal Paths
+  PathFinder ->> PathFinder: Place Start/End Points
+  PathFinder -->> MapGenerator: Return Valid Paths
+  MapGenerator ->> MapGenerator: Place Initial Castle
+  MapGenerator ->> FogOfWar: Apply Initial Fog
+  FogOfWar ->> FogOfWar: Hide Unexplored Tiles
+  FogOfWar ->> FogOfWar: Reveal Initial Visible Area
+  MapGenerator -->> GameState: Return Complete Map Structure
+  GameState ->> Renderer: Initialize Map Visualization
+  Renderer ->> Renderer: Create 3D Tile Instances
+  Renderer -->> GameUI: Render Initial Map View
+  GameUI -->> Player: Display Game Map with Fog of War
+  Note over Player, Renderer: Wave Completion & Map Exploration
+  Player ->> GameUI: Complete Wave
+  GameUI ->> GameState: Update Wave Status
+  GameState ->> FogOfWar: Request Tile Reveal
+  FogOfWar ->> FogOfWar: Select Reveal Candidate Tiles
+  FogOfWar ->> GameUI: Prompt Player for Tile Selection
+  GameUI -->> Player: Show Available Tiles to Reveal
+  Player ->> GameUI: Select Tile to Reveal
+  GameUI ->> FogOfWar: Process Tile Reveal
+  FogOfWar ->> GameState: Update Tile Visibility
+  GameState ->> Renderer: Update Visual State
+  Renderer -->> GameUI: Display Newly Revealed Area
+  GameUI -->> Player: Show Revealed Map Section
+  Note over Player, Renderer: This process continues with each wave completion
+
+
