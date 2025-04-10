@@ -5,10 +5,11 @@ sequenceDiagram
   participant MapGenerator as Map Generator
   participant TileGenerator as Tile Generator
   participant PathFinder as Path Finding
+  participant OpenEnds as Open Ends Manager
   participant FogOfWar as Fog of War System
   participant Renderer as 3D Renderer
 
-  Note over Player, Renderer: Map Generation & Initialization Sequence
+  Note over Player, Renderer: Initial Map Generation & Setup
   Player ->> GameUI: Start New Game
   GameUI ->> GameState: Initialize Game
   GameState ->> MapGenerator: Generate New Map
@@ -18,22 +19,46 @@ sequenceDiagram
     TileGenerator ->> TileGenerator: Generate Procedural Tile
     TileGenerator -->> MapGenerator: Return Generated Tile
   end
-  MapGenerator ->> PathFinder: Request Valid Path Creation
-  PathFinder ->> PathFinder: Calculate Optimal Paths
-  PathFinder ->> PathFinder: Place Start/End Points
-  PathFinder -->> MapGenerator: Return Valid Paths
-  MapGenerator ->> MapGenerator: Place Initial Castle
+  MapGenerator ->> MapGenerator: Place Initial Castle (Core)
+  MapGenerator ->> OpenEnds: Initialize Open Ends
+  OpenEnds ->> OpenEnds: Create Initial Path Segment
+  OpenEnds ->> OpenEnds: Mark Initial Open End
+  MapGenerator ->> PathFinder: Create Initial Valid Path
+  PathFinder ->> PathFinder: Place Initial Enemy Portal
+  PathFinder -->> MapGenerator: Return Initial Path
   MapGenerator ->> FogOfWar: Apply Initial Fog
   FogOfWar ->> FogOfWar: Hide Unexplored Tiles
   FogOfWar ->> FogOfWar: Reveal Initial Visible Area
-  MapGenerator -->> GameState: Return Complete Map Structure
+  MapGenerator -->> GameState: Return Initial Map Structure
   GameState ->> Renderer: Initialize Map Visualization
   Renderer ->> Renderer: Create 3D Tile Instances
   Renderer -->> GameUI: Render Initial Map View
-  GameUI -->> Player: Display Game Map with Fog of War
-  Note over Player, Renderer: Wave Completion & Map Exploration
+  GameUI -->> Player: Display Initial Game Map with Fog of War
+  
+  Note over Player, Renderer: Progressive Path Generation After Wave Completion
   Player ->> GameUI: Complete Wave
   GameUI ->> GameState: Update Wave Status
+  GameState ->> MapGenerator: Request Path Expansion
+  MapGenerator ->> OpenEnds: Get Available Open Ends
+  OpenEnds -->> MapGenerator: Return Open End Candidates
+  alt Fork Creation Decision
+    MapGenerator ->> GameUI: Prompt Player for Fork Direction Choice
+    GameUI -->> Player: Show Fork Direction Options
+    Player ->> GameUI: Select Fork Direction
+    GameUI ->> MapGenerator: Process Fork Direction Choice
+  else Portal Creation Decision
+    MapGenerator ->> MapGenerator: Decide to Create New Portal
+    MapGenerator ->> PathFinder: Place New Enemy Portal
+  else Regular Path Extension
+    MapGenerator ->> PathFinder: Extend Existing Path
+  end
+  MapGenerator ->> OpenEnds: Update Open Ends List
+  MapGenerator ->> FogOfWar: Update Fog of War
+  GameState ->> Renderer: Update Visual State
+  Renderer -->> GameUI: Display Updated Map
+  GameUI -->> Player: Show New Path Segments and Features
+  
+  Note over Player, Renderer: Tile Reveal System
   GameState ->> FogOfWar: Request Tile Reveal
   FogOfWar ->> FogOfWar: Select Reveal Candidate Tiles
   FogOfWar ->> GameUI: Prompt Player for Tile Selection
@@ -44,6 +69,4 @@ sequenceDiagram
   GameState ->> Renderer: Update Visual State
   Renderer -->> GameUI: Display Newly Revealed Area
   GameUI -->> Player: Show Revealed Map Section
-  Note over Player, Renderer: This process continues with each wave completion
-
-
+  Note over Player, Renderer: This process repeats with each wave completion, gradually expanding the map

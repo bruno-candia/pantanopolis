@@ -1,10 +1,10 @@
-# Tower Defense - 3D Tower Defense Game
+# Auride Defense - 3D Tower Defense Game
 
-![Tower Defense Game](./public/preview.png)
+![Auride Defense Game](./public/preview.png)
 
 ## 🎮 Overview
 
-Tower Defense is a responsive 3D Tower Defense game built with React Three Fiber and Three.js. The game features procedural map generation, providing players with a unique layout every game from the distribution of tiles to the strategic positioning of paths.
+Auride Defense is a responsive 3D Tower Defense game built with React Three Fiber and Three.js. The game features procedural map generation, providing players with a unique layout every game from the distribution of tiles to the strategic positioning of paths.
 
 ### Key Features
 
@@ -97,7 +97,7 @@ The fog of war feature works as follows:
 - This continues until the entire map is discovered
 - Strategic planning is required as players decide which tiles to reveal
 
-### Tower Defense Gameplay
+### Auride Defense Gameplay
 
 - Place towers on strategic locations to defend against waves of enemies
 - Manage resources earned from defeating enemies

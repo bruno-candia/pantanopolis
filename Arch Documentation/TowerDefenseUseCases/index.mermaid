@@ -1,5 +1,5 @@
 flowchart LR
-    subgraph "Tower Defense Game"
+    subgraph "Auride Defense Game"
         UC1["Start New Game"]
         UC2["Select Difficulty"]
         UC3["Place Tower"]
@@ -17,6 +17,9 @@ flowchart LR
         UC15["View Tutorial"]
         UC16["Pause/Resume Game"]
         UC17["Use Special Abilities"]
+        UC18["Choose Path Expansion"]
+        UC19["Direct Fork Creation"]
+        UC20["Influence Portal Placement"]
 
 
     player --> UC1
@@ -34,24 +37,38 @@ flowchart LR
     player --> UC15
     player --> UC16
     player --> UC17
+    player --> UC18
+    player --> UC19
+    player --> UC20
 
     UC1 --> UC2
     UC3 --> UC7
     UC4 --> UC7
     UC5 --> UC7
     UC6 --> UE1["Defeat Enemies"]
+    UC6 --> UE2["Unlock Path Expansion"]
     UC8 --> UT1["Discover New Tiles"]
     UC8 --> US1["Unlock Strategic Options"]
     UC9 --> UV1["View Tower Performance"]
     UC9 --> UW1["View Enemy Statistics"]
     UC17 --> UP1["Use Power-ups"]
     UC17 --> UM1["Activate Map Effects"]
+    UC18 --> UC19
+    UC18 --> UP2["Strategic Map Development"]
+    UC19 --> UP3["Create Defensive Choke Points"]
+    UC20 --> UP4["Manage Enemy Entry Points"]
    end
     %% Notes for explanation
     classDef actor fill:#f9f,stroke:#333,stroke-width:2px;
     classDef normal fill:#bbf,stroke:#333,stroke-width:1px;
     classDef important fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5;
+    classDef pathGen fill:#fdb,stroke:#333,stroke-width:2px,color:#333;
 
     UC6 --> UENote["Note: Player controls when to start the next wave of enemies"]
     UC7 --> URNote["Note: Resources obtained from defeating enemies and completing waves"]
     UC8 --> UMapNote["Note: After winning a wave, player can reveal one more tile on the map"]
+    UC18 --> UPathNote["Note: Progressive path generation allows players to influence how the map develops"]
+    UC19 --> UForkNote["Note: Players can choose the direction of path forks, creating strategic defense opportunities"]
+    UC20 --> UPortalNote["Note: Players can influence where new enemy portals appear on the expanding map"]
+    
+    class UC18,UC19,UC20,UP2,UP3,UP4 pathGen

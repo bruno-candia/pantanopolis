@@ -50,8 +50,27 @@ graph TD
     
     %% Game Flow & Systems
     TileGeneration --> ProceduralGeneration[Procedural Generation]
+    TileGeneration --> TileTypes[Tile Types]
+    TileTypes --> PathTiles[Path Tiles]
+    TileTypes --> TowerTiles[Tower Placement Tiles]
+    TileTypes --> SpecialTiles[Special Tiles]
+    TileTypes --> ObstacleTiles[Obstacle Tiles]
+    
     MapGeneration --> TileGeneration
     MapGeneration --> PathFinding
+    MapGeneration --> ProgressiveGeneration[Progressive Path Generation]
+    ProgressiveGeneration --> OpenEnds[Open Ends Management]
+    ProgressiveGeneration --> ForkCreation[Path Fork Creation]
+    ProgressiveGeneration --> PortalPlacement[Enemy Portal Placement]
+    
+    PathFinding --> PathAlgorithms[Pathfinding Algorithms]
+    PathAlgorithms --> BFS[Breadth-First Search]
+    PathAlgorithms --> AStar[A* Algorithm]
+    PathAlgorithms --> SimpleFollowing[Simple Path Following]
+    
+    PathFinding --> PathData[Path Data Structures]
+    PathData --> Grid2D[2D Grid Array]
+    PathData --> TreeStructure[Path Tree Structure]
     
     EnemyManagement --> Spawning[Enemy Spawning]
     EnemyManagement --> AI[Enemy AI]
@@ -64,6 +83,9 @@ graph TD
     WaveSystem --> Difficulty[Difficulty Scaling]
     WaveSystem --> Rewards[Wave Rewards]
     WaveSystem --> FogOfWar
+    WaveSystem --> PathExpansion[Path Expansion After Waves]
+    
+    FogOfWar --> RevealSystem[Tile Reveal System]
     
     %% Backend Integration
     BackendIntegration[Backend Integration] --> Authentication[User Authentication]
@@ -90,7 +112,9 @@ graph TD
     classDef core fill:#f9f,stroke:#333,stroke-width:2px
     classDef implemented fill:#bfb,stroke:#333,stroke-width:1px
     classDef planned fill:#bbf,stroke:#333,stroke-width:1px
+    classDef inspired fill:#fdb,stroke:#333,stroke-width:1px
     
     class App,GameEngine,Frontend core
     class TileGeneration,O_Map implemented
     class MapGeneration,PathFinding,EnemyManagement,TowerManagement,CastleManagement,WaveSystem,FogOfWar,Physics planned
+    class ProgressiveGeneration,PathAlgorithms,OpenEnds,ForkCreation,PortalPlacement,PathExpansion inspired
